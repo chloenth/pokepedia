@@ -2,7 +2,6 @@
 import '../Card.css';
 
 const Card = ({ pokemon }) => {
-  console.log(pokemon.abilities);
   const ability = pokemon.abilities.find((a) => !a.is_hidden);
   const hiddenAbility = pokemon.abilities.find((a) => a.is_hidden);
 
