@@ -1,5 +1,6 @@
 import { useEffect, useState } from 'react';
 import CardList from './components/CardList';
+import Scroll from './components/Scroll';
 
 const App = () => {
   // eslint-disable-next-line no-unused-vars
@@ -36,7 +37,9 @@ const App = () => {
       <h1 className='text-5xl text-center font-bold font-serif text-blue-900 tracking-widest mt-9 mb-12'>
         Pokemon
       </h1>
-      <CardList pokeArray={pokeArray} />
+      <Scroll>
+        <CardList pokeArray={pokeArray} />
+      </Scroll>
     </div>
   );
 };
