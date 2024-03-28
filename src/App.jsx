@@ -36,9 +36,7 @@ const App = () => {
       <h1 className='text-5xl text-center font-bold font-serif text-blue-900 tracking-widest mt-9 mb-12'>
         Pokemon
       </h1>
-      <div className='container mx-auto'>
-        <CardList pokeArray={pokeArray} />
-      </div>
+      <CardList pokeArray={pokeArray} />
     </div>
   );
 };
