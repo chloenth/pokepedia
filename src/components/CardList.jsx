@@ -5,7 +5,7 @@ const CardList = ({ pokeArray }) => {
   console.log(pokeArray);
 
   return (
-    <div>
+    <div className='container mx-auto grid grid-cols-4 gap-10'>
       {pokeArray.map((poke, i) => (
         <Card key={i} pokemon={poke} />
       ))}
