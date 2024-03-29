@@ -9,7 +9,6 @@ const App = () => {
   const [searchField, setSearchField] = useState('');
 
   const fetchPokemon = async (url) => {
-    // console.log('url', url, 'index', i);
     const res = await fetch(url);
     const data = await res.json();
     const pokemon = {
@@ -52,10 +51,12 @@ const App = () => {
   }, []);
 
   return !pokeArray.length ? (
-    <h1>Loading</h1>
+    <h1 className='text-3xl font-bold font-serif text-stone-600 tracking-widest p-9'>
+      Loading ...
+    </h1>
   ) : (
     <div className='text-center'>
-      <h1 className='text-5xl  font-bold font-serif text-blue-900 tracking-widest p-9'>
+      <h1 className='text-5xl font-bold font-serif text-blue-900 tracking-widest p-9'>
         Pokemon
       </h1>
       <SearchBox searchChange={onSearchChange} />
