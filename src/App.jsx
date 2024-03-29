@@ -6,11 +6,14 @@ import SearchBox from './components/SearchBox';
 const App = () => {
   // eslint-disable-next-line no-unused-vars
   const [pokeArray, setPokeArray] = useState([]);
+  const [searchField, setSearchField] = useState('');
 
   const fetchPokemon = async (url) => {
+    // console.log('url', url, 'index', i);
     const res = await fetch(url);
     const data = await res.json();
     const pokemon = {
+      id: data.id,
       name: data.name,
       types: data.types,
       abilities: data.abilities,
@@ -19,28 +22,45 @@ const App = () => {
       weight: data.weight,
       url: data.sprites.other.home.front_default,
     };
-    setPokeArray((pokeArray) => [...pokeArray, pokemon]);
+
+    return pokemon;
   };
 
   const fetchPokemonArr = async () => {
     const respone = await fetch('https://pokeapi.co/api/v2/pokemon');
     const data = await respone.json();
-    const pokeUrls = data.results;
-    pokeUrls.map((p) => fetchPokemon(p.url));
+    const pokeList = data.results;
+    let pokemonArray = [];
+    for (const poke of pokeList) {
+      const pokemon = await fetchPokemon(poke.url);
+      pokemonArray.push(pokemon);
+    }
+
+    return pokemonArray;
   };
 
+  const onSearchChange = (e) => {
+    setSearchField(e.target.value);
+  };
+
+  const filterPokemon = pokeArray.filter((poke) =>
+    poke.name.toLowerCase().includes(searchField.toLowerCase())
+  );
+
   useEffect(() => {
-    fetchPokemonArr();
+    fetchPokemonArr().then((result) => setPokeArray(result));
   }, []);
 
-  return (
+  return !pokeArray.length ? (
+    <h1>Loading</h1>
+  ) : (
     <div className='text-center'>
       <h1 className='text-5xl  font-bold font-serif text-blue-900 tracking-widest p-9'>
         Pokemon
       </h1>
-      <SearchBox />
+      <SearchBox searchChange={onSearchChange} />
       <Scroll>
-        <CardList pokeArray={pokeArray} />
+        <CardList pokeArray={filterPokemon} />
       </Scroll>
     </div>
   );
