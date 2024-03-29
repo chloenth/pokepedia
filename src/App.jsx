@@ -58,7 +58,7 @@ const App = () => {
     </h1>
   ) : (
     <div className='text-center'>
-      <h1 className='text-5xl font-bold font-serif text-blue-900 tracking-widest p-9'>
+      <h1 className='xs:text-4xl sm:text-5xl font-bold font-serif text-blue-900 tracking-widest p-9'>
         Pokemon
       </h1>
       <SearchBox searchChange={onSearchChange} />
