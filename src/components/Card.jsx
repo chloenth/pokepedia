@@ -10,7 +10,7 @@ const Card = ({ pokemon }) => {
   const hiddenAbility = abilities.find((a) => a.is_hidden);
 
   return (
-    <div className='w-72 card rounded-xl drop-shadow-2xl inline-block p-1 '>
+    <div className='xs:w-full sm:w-72 card rounded-xl drop-shadow-2xl inline-block p-1 '>
       <img
         className='w-full h-36 object-contain border-b border-black'
         src={url}
