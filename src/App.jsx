@@ -2,6 +2,8 @@ import { useEffect, useState } from 'react';
 import CardList from './components/CardList';
 import Scroll from './components/Scroll';
 import SearchBox from './components/SearchBox';
+import ErrorBoundry from './components/ErrorBoundry';
+import { ErrorBoundary } from 'react-error-boundary';
 
 const App = () => {
   // eslint-disable-next-line no-unused-vars
@@ -61,7 +63,9 @@ const App = () => {
       </h1>
       <SearchBox searchChange={onSearchChange} />
       <Scroll>
-        <CardList pokeArray={filterPokemon} />
+        <ErrorBoundary FallbackComponent={ErrorBoundry}>
+          <CardList pokeArray={filterPokemon} />
+        </ErrorBoundary>
       </Scroll>
     </div>
   );
