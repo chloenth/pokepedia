@@ -10,7 +10,7 @@ Explor the world of Pokémon! Discover detailed information, stats, types, abili
 - Boosted by Tailwind CSS, the app features stylish designs and flawless responsiveness. Whether on a phone, tablet, or desktop, enjoy a seamless experience on any screen size.
 - Start exploring and uncover the wonders of the Pokémon world today!"
 
-[Meet your Robofriends!](https://huongnguyen1709.github.io/pokepedia/)
+[Meet your Pokémon!](https://huongnguyen1709.github.io/pokepedia/)
 
 ![Alt text](/src/assets/pokemon.png 'Pokémon')
 
